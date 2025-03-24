@@ -1,0 +1,26 @@
+/* Garantiamo che il contenuto principale occupi tutta l'altezza disponibile */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Imposta il layout a colonna */
+}
+
+.content {
+  flex: 1; /* Occupa tutto lo spazio disponibile */
+}
+
+/* Footer al fondo della pagina */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

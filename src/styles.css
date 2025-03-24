@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+/* Impostiamo l'altezza di tutta la pagina al 100% */
+html,
+body {
+  height: 100%; /* Fai in modo che il body e l'html occupino tutta l'altezza disponibile */
+  margin: 0; /* Rimuovi i margini di default */
+}
+
+/* Impostiamo il body come un contenitore Flexbox */
+body {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale */
+  min-height: 100vh; /* Almeno 100% della altezza della finestra */
+}
+
+/* La parte principale (contenuto) deve occupare tutto lo spazio disponibile */
+.content {
+  flex: 1; /* Fa sì che la parte principale occupi tutto lo spazio disponibile */
+}
+
+/* Stili del footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}

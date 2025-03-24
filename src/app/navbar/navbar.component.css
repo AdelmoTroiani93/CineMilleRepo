@@ -1,0 +1,20 @@
+/* navbar.component.css */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-item {
+  font-size: 16px;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: #f0ad4e !important;
+}

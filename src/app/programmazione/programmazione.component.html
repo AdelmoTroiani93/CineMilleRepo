@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="bg-dark">
+    <h2 class="proiezione-title-header text-white">🎬 Proiezioni</h2>
+
+    <!-- Barra di filtro -->
+    <div class="filtro-container">
+      <div class="filtro-bar">
+        <label>
+          Data inizio:
+          <input
+            type="date"
+            class="filtro-input"
+            [(ngModel)]="dataProiezione"
+          />
+        </label>
+
+        <label>
+          Data fine:
+          <input type="date" class="filtro-input" [(ngModel)]="dataFine" />
+        </label>
+
+        <button class="filtro-button" (click)="filtraProiezioni()">
+          Filtra
+        </button>
+        <button class="reset-button" (click)="reset()">Reset</button>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Lista Proiezioni -->
+    <div class="proiezione-list-container">
+      <div class="proiezione-card" *ngFor="let proiezione of proiezioni">
+        <!-- Sala (sopra il titolo del film) -->
+        <p class="proiezione-sala">
+          {{ proiezione.sala.nome }}
+        </p>
+
+        <!-- Immagine del film -->
+        <img
+          [src]="'a16a0da6-2f1c-407e-b0b1-81690391959f.webp'"
+          alt=""
+          class="proiezione-image"
+        />
+
+        <!-- Titolo del film -->
+        <h3 class="proiezione-title">{{ proiezione.film.titolo }}</h3>
+
+        <!-- Data di inizio della proiezione -->
+        <p class="proiezione-time">
+          Data Inizio: {{ proiezione.dataProiezione | date : "dd MMMM yyyy" }}
+        </p>
+
+        <!-- Data di fine della proiezione -->
+        <hr />
+        <p class="proiezione-time">
+          Data Fine: {{ proiezione.dataFine | date : "dd MMMM yyyy" }}
+        </p>
+
+        <!-- Tipo di tecnologia (IMAX, 2D, etc.) -->
+        <p class="proiezione-tecnologia">
+          Tecnologia: {{ proiezione.sala.tipo }}
+        </p>
+
+        <!-- Capienza della sala (a lato in basso della card) -->
+        <p class="proiezione-capienza">
+          Capienza: {{ proiezione.sala.capienza }}
+        </p>
+      </div>
+
+      <!-- Paginazione -->
+    </div>
+    <hr />
+    <div class="pagination-container">
+      <button
+        class="pagination-button"
+        (click)="prevPage()"
+        [disabled]="currentPage === 0"
+      >
+        ←
+      </button>
+
+      <span
+        *ngFor="let page of pageArray"
+        (click)="goToPage(page)"
+        [class.active]="page === currentPage"
+      >
+        {{ page + 1 }}
+      </span>
+
+      <!-- La pagina corrente può essere dinamica -->
+      <button
+        class="pagination-button"
+        (click)="nextPage()"
+        [disabled]="currentPage === pageMax - 1"
+      >
+        →
+      </button>
+    </div>
+    <br />
+  </div>
+</div>
