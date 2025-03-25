@@ -25,46 +25,36 @@
     <hr />
 
     <!-- Lista Proiezioni -->
+
     <div class="proiezione-list-container">
-      <div class="proiezione-card" *ngFor="let storicos of storico">
-        <!-- Sala (sopra il titolo del film) -->
-        <p class="proiezione-sala">
-          {{ storicos.sala.nome }}
-        </p>
-
-        <!-- Immagine del film -->
-        <img
-          [src]="'a16a0da6-2f1c-407e-b0b1-81690391959f.webp'"
-          alt=""
-          class="proiezione-image"
-        />
-
-        <!-- Titolo del film -->
-        <h3 class="proiezione-title">{{ storicos.film.titolo }}</h3>
-
-        <!-- Data di inizio della proiezione -->
-        <p class="proiezione-time">
-          Data Inizio: {{ storicos.dataProiezione | date : "dd MMMM yyyy" }}
-        </p>
-
-        <!-- Data di fine della proiezione -->
-        <hr />
-        <p class="proiezione-time">
-          Data Fine: {{ storicos.dataFine | date : "dd MMMM yyyy" }}
-        </p>
-
-        <!-- Tipo di tecnologia (IMAX, 2D, etc.) -->
-        <p class="proiezione-tecnologia">
-          Tecnologia: {{ storicos.sala.tipo }}
-        </p>
-
-        <!-- Capienza della sala (a lato in basso della card) -->
-        <p class="proiezione-capienza">
-          Capienza: {{ storicos.sala.capienza }}
-        </p>
-      </div>
-
-      <!-- Paginazione -->
+      <table class="storico-table">
+        <thead>
+          <tr>
+            <th>Data Inizio Proiezione</th>
+            <th>Data Fine Proiezione</th>
+            <th>Sala</th>
+            <th>Capienza Sala</th>
+            <th>Tipologia di Sala</th>
+            <th>Titolo Film</th>
+            <th>Genere Film</th>
+            <th>Data Uscita Film</th>
+            <th>Durata Film</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let storicos of storico">
+            <td>{{ storicos.dataInizio | date : "dd/MM/yyyy" }}</td>
+            <td>{{ storicos.dataFine | date : "dd/MM/yyyy" }}</td>
+            <td>{{ storicos.sala.nome }}</td>
+            <td>{{ storicos.sala.capienza }}</td>
+            <td>{{ storicos.sala.tipo }}</td>
+            <td>{{ storicos.film.titolo }}</td>
+            <td>{{ storicos.film.genere }}</td>
+            <td>{{ storicos.film.dataUscita }}</td>
+            <td>{{ storicos.film.durata }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <hr />
     <div class="pagination-container">

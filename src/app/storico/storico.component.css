@@ -157,3 +157,55 @@ span.active {
   color: white;
   font-weight: bold;
 }
+
+.proiezione-list-container {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente (opzionale) */
+  width: 100%;
+  overflow-x: auto; /* Aggiunge lo scroll orizzontale se necessario */
+}
+
+.storico-table {
+  width: 80%; /* Occupa l'80% della larghezza disponibile */
+  max-width: 900px; /* Non supera i 900px */
+  border-collapse: collapse;
+}
+
+.storico-table th,
+.storico-table td {
+  border: 1px solid #ddd;
+  padding: 10px; /* Ridotto il padding per non essere troppo grande */
+  text-align: left;
+  background-color: #222;
+  color: white; /* Testo bianco per contrasto */
+}
+
+.storico-table th {
+  background-color: #353535;
+  font-weight: bold;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  .storico-table {
+    width: 95%; /* Occupa quasi tutta la larghezza su schermi piccoli */
+  }
+
+  .storico-table th,
+  .storico-table td {
+    padding: 6px; /* Riduce il padding su schermi piccoli */
+  }
+}
+
+@media (max-width: 480px) {
+  .storico-table {
+    width: 100%; /* Su schermi molto piccoli occupa il 100% */
+  }
+
+  .storico-table th,
+  .storico-table td {
+    padding: 5px; /* Ulteriore riduzione del padding */
+    font-size: 14px; /* Testo più piccolo per adattarsi meglio */
+  }
+}

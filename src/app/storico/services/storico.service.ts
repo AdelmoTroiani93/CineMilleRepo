@@ -25,7 +25,7 @@ export class StoricoService {
       params = params.set('dataFine', dataFine);
     }
     return this.http.get<PagedResponse>(
-      `${this.dbUrl}` + '?page=' + page + '&size=30&sort=id,asc',
+      `${this.dbUrl}` + '?page=' + page + '&size=10&sort=id,asc',
       { params }
     );
   }
